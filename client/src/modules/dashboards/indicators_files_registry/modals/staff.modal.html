@@ -1,7 +1,7 @@
 <form name="StaffForm" bh-submit="$ctrl.submit(StaffForm)" novalidate>
   <div class="modal-body">
     <h3 style="padding:0; margin:0; margin-bottom: 20px;">
-      <span translate>DASHBOARD.INDICATORS_FILES.WRITE_HUMAN_RESOURCES_INDICATORS</span> 
+      <span translate>DASHBOARD.INDICATORS_FILES.WRITE_HUMAN_RESOURCES_INDICATORS</span>
       <small ng-show="$ctrl.selectedPeriod"><strong>{{ $ctrl.selectedPeriod }}</strong></small>
     </h3>
 
@@ -19,6 +19,7 @@
           <p translate>DASHBOARD.INDICATORS_FILES.ALREADY_EXISTS</p>
         </div>
       </div>
+
       <div class="col-xs-7 col-xs-offset-1">
         <fieldset ng-disabled="$ctrl.loading">
           <bh-input-text

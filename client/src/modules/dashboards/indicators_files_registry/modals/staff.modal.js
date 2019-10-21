@@ -14,7 +14,7 @@ function StaffModalController(
   vm.indicators = {};
 
   const { uuid } = $state.params;
-  vm.isCreating = !!($state.params.creating);
+  const isCreateState = !!($state.params.creating);
 
   vm.onSelectPeriod = selected => {
     vm.fiscal_year_id = selected.fiscal && selected.fiscal.id ? selected.fiscal.id : undefined;
@@ -63,14 +63,14 @@ function StaffModalController(
 
     return checkDuplicated()
       .then(isExisting => {
-        if (isExisting && vm.isCreating) {
+        if (isExisting && isCreateState) {
           vm.isExisting = true;
           return null;
         }
 
         // hack for server match
         const bundle = { indicator : vm.file, personel : vm.indicators };
-        const promise = (vm.isCreating)
+        const promise = (isCreateState)
           ? IndicatorsDashboard.staff.create(bundle)
           : IndicatorsDashboard.staff.update(uuid, bundle);
         return promise;
@@ -78,7 +78,7 @@ function StaffModalController(
       .then(() => {
         if (vm.isExisting) { return; }
 
-        const translateKey = (vm.isCreating)
+        const translateKey = (isCreateState)
           ? 'DASHBOARD.INDICATORS_FILES.SUCCESSFULLY_ADDED'
           : 'DASHBOARD.INDICATORS_FILES.SUCCESSFULLY_UPDATED';
         Notify.success(translateKey);
