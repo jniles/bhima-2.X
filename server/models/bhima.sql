@@ -137,14 +137,14 @@ INSERT INTO unit VALUES
   (250, 'Sytem usage statistic', 'REPORT.SYSTEM_USAGE_STAT.TITLE', 'Sytem usage statistic', 144, '/modules/reports/systemUsageStat', '/reports/systemUsageStat'),
   (251, 'indexes', 'TREE.INDEXES','The payrall-index', 57,'/modules/finance/','/PAYROLL_INDEX_FOLDER'),
   (252, 'Staffing indexes management','TREE.STAFFING_INDICES_MANAGEMENT','Staffing indices management',251 ,'/modules/payroll/staffing_indice','/staffing_indices'),
-  (253, 'Multiple Payroll by indice','TREE.MULTI_PAYROLL_INDICE','Multiple Payroll (indice)', 251,'/modules/multiple_payroll_indice','/multiple_payroll_indice'), 
+  (253, 'Multiple Payroll by indice','TREE.MULTI_PAYROLL_INDICE','Multiple Payroll (indice)', 251,'/modules/multiple_payroll_indice','/multiple_payroll_indice'),
   (254, 'Data Collection', 'TREE.DATA_COLLECTION', '', 0, '/modules/data_collection', '/data_collection'),
   (255, 'Fill Form', 'TREE.FILL_FORM', '', 254, '/modules/fill_form', '/fill_form'),
   (256, 'Display Metadata', 'TREE.DISPLAY_METADATA', '', 254, '/modules/display_metadata', '/display_metadata'),
   (257, 'Data Kit', 'TREE.DATA_KIT', 'Data Kit', 254, '/modules/data_kit', '/data_kit'),
   (258, 'Data Collector Management', 'TREE.FORMS_MANAGEMENT', '', 257, '/modules/data_collector_management', '/data_collector_management'),
   (259, 'Choices list management', 'TREE.CHOICES_LIST_MANAGEMENT', '', 257, '/modules/choices_list_management', '/choices_list_management'),
-  (260, 'Survey Form', 'TREE.FORMS_CONFIGURATION', '', 257, '/modules/survey_form', '/survey_form'),  
+  (260, 'Survey Form', 'TREE.FORMS_CONFIGURATION', '', 257, '/modules/survey_form', '/survey_form'),
   (261, 'Data Kit Report', 'TREE.DATA_KIT_REPORT', 'Data Kit Report', 144, '/modules/reports/dataKit', '/reports/dataKit'),
   (262, 'Stock Requisition','TREE.STOCK_REQUISITION','Stock Requisition', 160,'/modules/stock/stock_requisition','/stock/requisition'),
   (263, 'Configuration Analysis Tools','TREE.CONFIGURATION_ANALYSIS_TOOLS','Configuration Analysis Tools', 1,'/modules/configuration_analysis_tools','/configuration_analysis_tools'),
@@ -153,19 +153,46 @@ INSERT INTO unit VALUES
 
 -- Reserved system account type
 INSERT INTO `account_category` VALUES
-  (1, 'income', 'ACCOUNT.TYPES.INCOME'),
-  (2, 'expense', 'ACCOUNT.TYPES.EXPENSE'),
-  (3, 'balance', 'ACCOUNT.TYPES.BALANCE'),
-  (4, 'title', 'ACCOUNT.TYPES.TITLE');
+  (1, 'revenue', 'ACCOUNT.CATEGORY.INCOME'),
+  (2, 'expense', 'ACCOUNT.CATEGORY.EXPENSE'),
+  (3, 'asset', 'ACCOUNT.CATEGORY.ASSET'),
+  (4, 'liability', 'ACCOUNT.CATEGORY.LIABILITY'),
+  (5, 'equity', 'ACCOUNT.CATEGORY.EQUITY'),
+  (6, 'title', 'ACCOUNT.CATEGORY.TITLE');
 
 -- Reserved system account category
 INSERT INTO `account_type` VALUES
-  (1, 'asset', 'ACCOUNT.TYPES.ASSET', 3),
-  (2, 'liability', 'ACCOUNT.TYPES.LIABILITY', 3),
-  (3, 'equity', 'ACCOUNT.TYPES.EQUITY', 3),
-  (4, 'income', 'ACCOUNT.TYPES.INCOME', 1),
-  (5, 'expense', 'ACCOUNT.TYPES.EXPENSE', 2),
-  (6, 'title', 'ACCOUNT.TYPES.TITLE', 4);
+  -- Equity
+  (1, 'Capital Equity', 'ACCOUNT.TYPES.CAPITAL_EQUITY', 5),
+  (2, 'Revenue Equity', 'ACCOUNT.TYPES.REVENUE_EQUITY', 5),
+  (3, 'Expense Equity', 'ACCOUNT.TYPES.EXPENSE_EQUITY', 5),
+
+  -- Assets
+  (4, 'Cash or Cash Equivalents', 'ACCOUNT.TYPES.CASH', 3),
+  (5, 'Prepaid Expenses', 'ACCOUNT.TYPES.PREPAID_EXPENSES', 3),
+  (6, 'Accounts Receivable (Debtors)', 'ACCOUNT.TYPES.ACCOUNTS_RECEIVABLE', 3),
+  (7, 'Inventory', 'ACCOUNT.TYPES.INVENTORY', 3),
+  (8, 'Fixed Assets', 'ACCOUNT.TYPES.FIXED_ASSETS', 3),
+
+  -- Liabilities
+  (9, 'Accounts Payable (creditors)', 'ACCOUNT.TYPES.ACCOUNTS_PAYABLE', 4),
+  (10, 'Accrued Expenses', 'ACCOUNT.TYPES.ACCRUED_EXPENSES', 4),
+  (11, 'Unearned Revenue', 'ACCOUNT.TYPES.UNEARNED_REVENUE', 4),
+
+  -- Revenue Accounts
+  (12, 'Sales/Fees Revenue', 'ACCOUNT.TYPES.SALES_REVENUE', 1),
+  (13, 'Subsidy Revenue', 'ACCOUNT.TYPES.SUBSIDY_REVENUE', 1),
+  (14, 'Interest Revenue', 'ACCOUNT.TYPES.INTEREST_REVENUE', 1),
+  (15, 'Dividends Revenue', 'ACCOUNT.TYPES.DIVIDENDS_REVENUE', 1),
+  (16, 'Rent Revenue', 'ACCOUNT.TYPES.RENT_REVENUE', 1),
+  (17, 'Other Revenue', 'ACCOUNT.TYPES.OTHER_REVENUE', 1),
+
+  -- Expense Accounts
+  (18, 'Cost of Goods Sold', 'ACCOUNT.TYPES.COGS', 2),
+  (19, 'Payroll', 'ACCOUNT.TYPES.PAYROLL', 2),
+  (20, 'Taxes', 'ACCOUNT.TYPES.TAXES', 2),
+  (21, 'Other Operating Expenses', 'ACCOUNT.TYPES.OPERATING_EXPENSES', 2),
+  (22, 'Other Non-Operating Expenses', 'ACCOUNT.TYPES.NON_OPERATING_EXPENSES', 2);
 
 -- core BHIMA reports
 INSERT INTO `report` (`report_key`, `title_key`) VALUES
@@ -394,7 +421,7 @@ INSERT INTO `survey_form_type` (`id`, `label`, `type`, `is_list`) VALUES
   (10, 'FORM.LABELS.TEXT_AREA', 'text_area', 0);
 
 -- application process status
-INSERT INTO `status` VALUES 
+INSERT INTO `status` VALUES
   (1, 'in_progress', 'FORM.LABELS.STATUS_TYPE.IN_PROGRESS'),
   (2, 'done', 'FORM.LABELS.STATUS_TYPE.DONE'),
   (3, 'partially', 'FORM.LABELS.STATUS_TYPE.PARTIALLY'),
@@ -403,12 +430,12 @@ INSERT INTO `status` VALUES
   (6, 'completed', 'FORM.LABELS.STATUS_TYPE.COMPLETED');
 
 -- type of requestors
-INSERT INTO `stock_requestor_type` (`type_key`, `title_key`) VALUES 
+INSERT INTO `stock_requestor_type` (`type_key`, `title_key`) VALUES
   ('service', 'FORM.LABELS.SERVICE'),
   ('depot', 'FORM.LABELS.DEPOT');
 
 -- analysis_tool_type
-INSERT INTO `analysis_tool_type` (`label`, `is_balance_sheet`, `rank`) VALUES 
+INSERT INTO `analysis_tool_type` (`label`, `is_balance_sheet`, `rank`) VALUES
   ('FORM.LABELS.ANALYSIS_TOOLS.COSTS', 0, 1),
   ('FORM.LABELS.ANALYSIS_TOOLS.RECEIVABLES', 1, 4),
   ('FORM.LABELS.ANALYSIS_TOOLS.PROFITS', 0, 2),
