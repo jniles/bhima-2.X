@@ -207,16 +207,10 @@ exports.configure = function configure(app) {
   // API for account type routes CRUD
   app.get('/accounts/types', accounts.types.list);
   app.get('/accounts/types/:id', accounts.types.detail);
-  app.post('/accounts/types', accounts.types.create);
-  app.put('/accounts/types/:id', accounts.types.update);
-  app.delete('/accounts/types/:id', accounts.types.remove);
 
   // API for account categories routes CRUD
   app.get('/accounts/categories', accounts.categories.list);
   app.get('/accounts/categories/:id', accounts.categories.detail);
-  app.post('/accounts/categories', accounts.categories.create);
-  app.put('/accounts/categories/:id', accounts.categories.update);
-  app.delete('/accounts/categories/:id', accounts.categories.remove);
 
   // API for account reference CRUD
   app.get('/accounts/references/values/:periodId', accounts.references.getAllValues);

@@ -153,7 +153,7 @@ INSERT INTO unit VALUES
 
 -- Reserved system account type
 INSERT INTO `account_category` VALUES
-  (1, 'revenue', 'ACCOUNT.CATEGORY.INCOME'),
+  (1, 'revenue', 'ACCOUNT.CATEGORY.REVENUE'),
   (2, 'expense', 'ACCOUNT.CATEGORY.EXPENSE'),
   (3, 'asset', 'ACCOUNT.CATEGORY.ASSET'),
   (4, 'liability', 'ACCOUNT.CATEGORY.LIABILITY'),
@@ -162,37 +162,31 @@ INSERT INTO `account_category` VALUES
 
 -- Reserved system account category
 INSERT INTO `account_type` VALUES
-  -- Equity
-  (1, 'Capital Equity', 'ACCOUNT.TYPES.CAPITAL_EQUITY', 5),
-  (2, 'Revenue Equity', 'ACCOUNT.TYPES.REVENUE_EQUITY', 5),
-  (3, 'Expense Equity', 'ACCOUNT.TYPES.EXPENSE_EQUITY', 5),
+  (1, 'Title', 'ACCOUNT.TYPES.TITLE', 6),  -- 'Capital'
+  -- Equity / Capital
+  (2, 'Capital Equity', 'ACCOUNT.TYPES.CAPITAL_EQUITY', 5),  -- 'Capital'
+  (3, 'Retained Earnings', 'ACCOUNT.TYPES.RETAINED_EARNINGS', 5), -- Resultat de l'exercise
 
-  -- Assets
-  (4, 'Cash or Cash Equivalents', 'ACCOUNT.TYPES.CASH', 3),
-  (5, 'Prepaid Expenses', 'ACCOUNT.TYPES.PREPAID_EXPENSES', 3),
-  (6, 'Accounts Receivable (Debtors)', 'ACCOUNT.TYPES.ACCOUNTS_RECEIVABLE', 3),
-  (7, 'Inventory', 'ACCOUNT.TYPES.INVENTORY', 3),
-  (8, 'Fixed Assets', 'ACCOUNT.TYPES.FIXED_ASSETS', 3),
+  -- Assets / Actifs
+  (4, 'Cash or Cash Equivalents', 'ACCOUNT.TYPES.CASH', 3), -- 'Comptes de Trésorerie'
+  (5, 'Accounts Receivable (Debtors)', 'ACCOUNT.TYPES.ACCOUNTS_RECEIVABLE', 3), -- 'Comptes Debiteurs'
+  (6, 'Inventory', 'ACCOUNT.TYPES.INVENTORY', 3), -- 'Stocks'
+  (7, 'Fixed Assets', 'ACCOUNT.TYPES.FIXED_ASSETS', 3), -- 'Immobilisations'
 
-  -- Liabilities
-  (9, 'Accounts Payable (creditors)', 'ACCOUNT.TYPES.ACCOUNTS_PAYABLE', 4),
-  (10, 'Accrued Expenses', 'ACCOUNT.TYPES.ACCRUED_EXPENSES', 4),
-  (11, 'Unearned Revenue', 'ACCOUNT.TYPES.UNEARNED_REVENUE', 4),
+  -- Liabilities / Passifs
+  (8, 'Accounts Payable (Creditors)', 'ACCOUNT.TYPES.ACCOUNTS_PAYABLE', 4), -- 'Comptes Crediteurs'
+  (9, 'Accrued Payroll', 'ACCOUNT.TYPES.ACCRUED_PAYROLL', 4), -- 'Personnel'
 
   -- Revenue Accounts
-  (12, 'Sales/Fees Revenue', 'ACCOUNT.TYPES.SALES_REVENUE', 1),
-  (13, 'Subsidy Revenue', 'ACCOUNT.TYPES.SUBSIDY_REVENUE', 1),
-  (14, 'Interest Revenue', 'ACCOUNT.TYPES.INTEREST_REVENUE', 1),
-  (15, 'Dividends Revenue', 'ACCOUNT.TYPES.DIVIDENDS_REVENUE', 1),
-  (16, 'Rent Revenue', 'ACCOUNT.TYPES.RENT_REVENUE', 1),
-  (17, 'Other Revenue', 'ACCOUNT.TYPES.OTHER_REVENUE', 1),
+  (10, 'Sales/Fees Revenue', 'ACCOUNT.TYPES.SALES_REVENUE', 1), -- 'Ventes'
+  (11, 'Subsidy Revenue', 'ACCOUNT.TYPES.SUBSIDY_REVENUE', 1), -- 'Subventions d'Exploitations'
+  (12, 'Other Revenue', 'ACCOUNT.TYPES.OTHER_REVENUE', 1), -- 'Autre Produits'
 
   -- Expense Accounts
-  (18, 'Cost of Goods Sold', 'ACCOUNT.TYPES.COGS', 2),
-  (19, 'Payroll', 'ACCOUNT.TYPES.PAYROLL', 2),
-  (20, 'Taxes', 'ACCOUNT.TYPES.TAXES', 2),
-  (21, 'Other Operating Expenses', 'ACCOUNT.TYPES.OPERATING_EXPENSES', 2),
-  (22, 'Other Non-Operating Expenses', 'ACCOUNT.TYPES.NON_OPERATING_EXPENSES', 2);
+  (13, 'Cost of Goods Sold', 'ACCOUNT.TYPES.COGS', 2), -- 'Variation Stocks'
+  (14, 'Payroll', 'ACCOUNT.TYPES.PAYROLL', 2), -- 'Charge de Personnel'
+  (15, 'Taxes', 'ACCOUNT.TYPES.TAXES', 2), -- 'Impots'
+  (16, 'Other Expenses', 'ACCOUNT.TYPES.EXPENSES', 2); -- 'Autres Charges'
 
 -- core BHIMA reports
 INSERT INTO `report` (`report_key`, `title_key`) VALUES

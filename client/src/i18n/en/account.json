@@ -51,7 +51,6 @@
     "TITLE" : "Account Management",
     "TITLE_ACCOUNT" : "Title Account",
     "TYPE" : "Account Type",
-    "TYPE_CHANGE_BLOCKED" : "You cannot change the type of a title account with children.",
     "UPDATED" : "Account record updated",
     "IMPORT" : {
       "ACCOUNTS" : "Import Accounts",
@@ -87,34 +86,26 @@
       "BALANCE" : "Balance",
       "EQUITY" : "Equity",
       "EXPENSE" : "Expense",
-      "INCOME" : "Income",
+      "REVENUE" : "Revenue",
       "LIABILITY" : "Liability",
-      "TIERS" : "Others",
       "TITLE" : "Title"
     },
     "TYPES" :{
-      "ACCOUNT.TYPES.ACCOUNTS_PAYABLE" : "Accounts Payable (creditors)",
-      "ACCOUNT.TYPES.ACCOUNTS_RECEIVABLE" : "Accounts Receivable (Debtors)",
-      "ACCOUNT.TYPES.ACCRUED_EXPENSES" : "Accrued Expenses",
       "ACCOUNT.TYPES.CAPITAL_EQUITY": "Capital Equity",
+      "ACCOUNT.TYPES.RETAINED_EARNINGS": "Retained Earnings",
       "ACCOUNT.TYPES.CASH" : "Cash or Cash Equivalents",
-      "ACCOUNT.TYPES.COGS" : "Cost of Goods Sold",
-      "ACCOUNT.TYPES.DIVIDENDS_REVENUE" : "Dividends Revenue",
-      "ACCOUNT.TYPES.EXPENSE_EQUITY" : "Expense Equity",
+      "ACCOUNT.TYPES.ACCOUNTS_RECEIVABLE" : "Accounts Receivable (Debtors)",
+      "ACCOUNT.TYPES.INVENTORY" : "Stock",
       "ACCOUNT.TYPES.FIXED_ASSETS" : "Fixed Assets",
-      "ACCOUNT.TYPES.INTEREST_REVENUE" : "Interest Revenue",
-      "ACCOUNT.TYPES.INVENTORY" : "Inventory",
-      "ACCOUNT.TYPES.NON_OPERATING_EXPENSES" : "Other Non-Operating Expenses",
-      "ACCOUNT.TYPES.OPERATING_EXPENSES" : "Other Operating Expenses",
-      "ACCOUNT.TYPES.OTHER_REVENUE" : "Other Revenue",
-      "ACCOUNT.TYPES.PAYROLL" : "Payroll",
-      "ACCOUNT.TYPES.PREPAID_EXPENSES" : "Prepaid Expenses",
-      "ACCOUNT.TYPES.RENT_REVENUE" : "Rent Revenue",
-      "ACCOUNT.TYPES.REVENUE_EQUITY":  "Revenue Equity",
+      "ACCOUNT.TYPES.ACCOUNTS_PAYABLE" : "Accounts Payable (Creditors)",
+      "ACCOUNT.TYPES.ACCRUED_PAYROLL" : "Accrued Payroll",
       "ACCOUNT.TYPES.SALES_REVENUE" : "Sales/Fees Revenue",
       "ACCOUNT.TYPES.SUBSIDY_REVENUE" : "Subsidy Revenue",
+      "ACCOUNT.TYPES.OTHER_REVENUE" : "Other Revenue",
+      "ACCOUNT.TYPES.COGS" : "Cost of Goods Sold",
+      "ACCOUNT.TYPES.PAYROLL" : "Payroll",
       "ACCOUNT.TYPES.TAXES" : "Taxes",
-      "ACCOUNT.TYPES.UNEARNED_REVENUE" : "Unearned Revenue"
+      "ACCOUNT.TYPES.OTHER_EXPENSES" : "Other Expenses"
     }
   }
 }
