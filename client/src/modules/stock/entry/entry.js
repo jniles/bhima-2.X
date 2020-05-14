@@ -463,18 +463,9 @@ function StockEntryController(
     if (!vm.movement.entry_type) {
       return Notify.danger('ERRORS.ER_NO_STOCK_SOURCE');
     }
-    vm.$loading = true;
-    mapEntry.form = form;
-    return mapEntry[vm.movement.entry_type].submit()
-      .then(toggleLoadingIndicator);
-  }
 
-  /**
-   * @method toggleLoadingIndicator
-   * @description toggle value for the loading indicator
-   */
-  function toggleLoadingIndicator() {
-    vm.$loading = !vm.$loading;
+    mapEntry.form = form;
+    return mapEntry[vm.movement.entry_type].submit();
   }
 
   /**

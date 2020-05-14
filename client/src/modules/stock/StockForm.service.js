@@ -153,11 +153,14 @@ function StockFormService(StockItem, Store, AppCache, Session, $timeout, bhConst
    * This method catch duplicated row and emit notification on the row
    */
   StockForm.prototype.hasDuplicatedLots = function hasDuplicatedLots() {
-    let doublonDetectedLine;
+    const dups = findDuplicatedLots(this.store);
 
-    if (findDuplicatedLots(this.store)) {
-      // notify on the concerned row
-      errorLineHighlight(doublonDetectedLine, this.store);
+    if (dups.length > 0) {
+      // notify on the concerned row(s)
+      dups.forEach(index => {
+        errorLineHighlight(index, this.store);
+      });
+
       return true;
     }
 
@@ -170,17 +173,15 @@ function StockFormService(StockItem, Store, AppCache, Session, $timeout, bhConst
 
     // detect the presence of duplicated lots
     function findDuplicatedLots(store) {
-      let doubleIndex;
       const selectedLots = refreshSelectedLotsList(store);
 
-      const doublonDetected = selectedLots.some((lot, idx) => {
-        const hasDoubles = selectedLots.lastIndexOf(lot) !== idx;
-        if (hasDoubles) { doubleIndex = idx; }
-        return hasDoubles;
-      });
+      // get the lots that are duplicated by filtering on duplicates, then
+      // getting their indexes
+      const duplicates = selectedLots
+        .filter((lot, idx, array) => array.lastIndexOf(lot) !== idx)
+        .map(lot => selectedLots.indexOf(lot));
 
-      doublonDetectedLine = doubleIndex;
-      return doublonDetected;
+      return duplicates;
     }
 
     return false;
